@@ -1,0 +1,73 @@
+import java.io.*;
+import java.util.Arrays;
+import java.util.List;
+public class Main {
+
+  public static void main(final String[] args) {
+    List<String> friends = Arrays.asList("sonali", "Mahajan", "Reshma",
+        "MohanE", "John", "Alyysa");
+
+    friends.stream().map(name -> name.toUpperCase())
+        .forEach(name -> System.out.print(name + " "));
+
+  }
+
+}
+
+public class Null {
+
+    public static void main(String[] args) {
+        String str1 = null;
+        String str2 = "";
+
+        if(isNullOrEmpty(str1))
+            System.out.println("First string is null or empty.");
+        else
+            System.out.println("First string is not null or empty.");
+
+        if(isNullOrEmpty(str2))
+            System.out.println("Second string is null or empty.");
+        else
+            System.out.println("Second string is not null or empty.");
+    }
+
+    public static boolean isNullOrEmpty(String str) {
+        if(str != null && !str.isEmpty())
+            return false;
+        return true;
+    }
+}
+
+
+#include <stdio.h>
+#include <string.h>
+
+ size_t count_words_start_with( const char *s, char c )
+ {
+    const char *blank = " \t";
+    size_t n = 0;
+
+    for ( const char *p = s; *p; p += strcspn( p,  blank ) )
+    {
+        p += strspn( p, blank );
+        if ( *p == c ) ++n;
+    }
+
+    return n;
+ }
+
+int main(void) 
+{
+    enum { N = 200 };
+    char sentence[N];
+    char c = 'A';
+
+    printf( "Enter sentence: " );
+    fgets( sentence, N, stdin );
+
+
+    printf("No. of %c in string \"%s\" is %zu\n", 
+        c, sentence, count_words_start_with( sentence, c ) );
+
+    return 0;
+}
