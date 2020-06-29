@@ -1,0 +1,20 @@
+INTERNAL COMMANDS
+echo $SHELL
+type cat
+type bash
+
+EXTERNAL COMMANDS
+alias
+break
+cd
+continue
+fg
+unalias
+export kill
+history
+read
+pwd
+test
+type
+times
+wait

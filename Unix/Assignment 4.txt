@@ -1,0 +1,68 @@
+1.Write the differences between comm, diff and comp with example.
+
+
+comm [-123] file1 file2
+comm locates identical lines within files sorted in the same collating sequence and produces three columns; the first contains lines found only in the first file, the second lines only in the second file and the third lines which are in both files.
+
+Options
+-1 
+suppresses lines that appear only in file1.
+
+-2 
+suppresses lines that appear only in file2.
+
+-3 
+suppresses lines that appear both in file1 and file2.
+
+The options suppress individual columns; thus to list only the lines common to both files, use comm -12
+
+To find lines which are unique to one file or the other use comm -3. Note that comm -123 displays nothing.
+
+NAME
+       cmp - compare two files byte by byte
+
+SYNOPSIS
+       cmp [OPTION]... FILE1 [FILE2 [SKIP1 [SKIP2]]]
+
+DESCRIPTION
+       Compare two files byte by byte.
+
+Deepak
+ Sep 3rd, 2014
+ 
+To check the differences between the data of two files cmp command is used. But it displays only the first difference.
+Syn: $ cmp file1 file2
+To display all the differences between the files diff command is used.
+Syn: $ diff file1 file2
+Note: Comparison between the files of different users is possible only when the present working user has the access permission on the other user.
+
+2.Write a command or script to display only normal files from your current directory.
+
+To list regular files only:
+
+ls -al | grep '^-'
+With symbolic links (to any type of file) included:
+
+ls -al | grep '^[-l]'
+Where the first character of the list describes the type of file, so - means that it's a regular file, for symbolic link is l.
+
+Debian/Ubuntu
+Print the names of the all matching files (including links):
+
+run-parts --list --regex . .
+With absolute paths:
+
+run-parts --list --regex . "$PWD"
+Print the names of all files in /etc that start with p and end with d:
+
+run-parts --list --regex '^p.*d$' /etc
+
+3.Write a command or script to display only the directories which are present under your home directory.
+
+Type the following command:
+$ ls -l | grep `^d'
+$ ls -l | egrep `^d'
+
+Or better try the following ls command only to list directories for the current directory:
+$ ls -d */
+

@@ -1,0 +1,87 @@
+1.Write the differences between Files, Directories and Sub-directories?
+
+Everything in LINUX/UNIX is a file. It can be for anything. Due to this File feature, we are able to modify it according to our needs.
+
+While Directory is a collection of files. It can contain one more files in it.
+
+When we execute the command "ls -l" for any file or directory, it's very easy to differentiate between them.
+for any file, the output would be like :
+-rw-r--r-- --> the first entry is "-"
+
+While for a directory it would look like :
+drwx--s--x --> starting with a "d"
+
+Sub Directory: these are the directories that come under the root directory in a hierarchy; 
+In general a directory within a director can be called as subdirectory.
+
+
+2.Without delete the contents of files how can you make the file as empty?
+
+> filename
+or
+cat /dev/null > filename
+echo "" > filename
+
+3.Using pipe and re-direction, write some script/example?
+
+Using pipes to redirect stdout to stdin
+
+With a pipe, I can send the output of curl into a program that filters the data: head, to show just the first few lines, or tail, to show the last
+ few lines (I use the -s option for curl to silence the progress indicator):
+
+user@host:~$ curl -s http://www.example.com | head -n 4
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+user@host:~$ curl -s http://www.example.com | tail -n 4
+    <p><a href="http://www.iana.org/domains/example">More information...</a></p>
+</div>
+</body>
+</html>
+
+
+4.Write a script to redirect the error message of a command in a file
+
+I have this simple script which redirects the output and append it to a file.
+
+filename="/home/ronnie/tmp/hello"
+
+date=$(date)
+echo "$date" >> $filename
+
+Now, lets suppose I change date=$(date) to date= $(date) which will generate an error.
+
+filename="/home/ronnie/tmp/hello"
+
+date= $(date)
+echo "$date" >> $filename 2>> $filename 
+#Also tried echo "$date" >> $filename 2>&1
+
+This command will redirect the error in a file
+./myscript 2>> errors.txt
+
+5. Differences between  "less" and "more" command?
+
+more is the oldest, less is an improvement and most is an improvement on that.
+
+more: forward navigation and limited backward navigation.
+less: both forward and backward navigation and also has search options.
+You can go to the beginning and the end of a file instantly. Plus you can switch to an editor (like open the file in vi or vim).
+It is noticeably quicker than editor for when the file is large.
+
+These 2 uses the h to let you view the keybindings for the command.
+
+6. Describe various types of file creation in Unix/Linux with differences
+
+In Unix, there are three basic types of files −
+
+Ordinary Files − An ordinary file is a file on the system that contains data, text, or program instructions. In this tutorial, you look at working with ordinary files.
+
+Directories − Directories store both special and ordinary files. For users familiar with Windows or Mac OS, Unix directories are equivalent to folders.
+
+Special Files − Some special files provide access to hardware such as hard drives, CD-ROM drives, modems, and Ethernet adapters. Other special files are similar to 
+aliases or shortcuts and enable you to access a single file using different names.
+
+
+

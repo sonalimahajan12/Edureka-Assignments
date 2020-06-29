@@ -1,0 +1,21 @@
+1. Write in one line on command prompt to create  a file having permission as 555 if possible
+
+$ chmod 555 yourDirectory/
+$ ls -l
+
+# your output will be similar to the following
+dr-xr-xr-x 14 root root 4096 Jun 25 07:36 yourDirectory
+
+2.Write in one line on command prompt to create  a directory having permission as 644 if possible.
+
+
+One approach could be using find:
+
+for directories
+find /desired_location -type d -print0 | xargs -0 chmod 0755
+for files
+find /desired_location -type f -print0 | xargs -0 chmod 0644
+
+3.If "ifconfig" command will not work then how can you get the IP address of your Unix/Linux system ?
+ Using this command 
+$ ip addr show

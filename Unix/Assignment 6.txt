@@ -1,0 +1,24 @@
+1.Delete 100 lines from vi editor using single command.
+
+delete 100 lines forward from (including) the current one
+
+repeat dd (delete current line) 100 times:
+
+100dd
+
+2.Delete matched search pattern from a file using sed and vi editor.
+
+The syntax is:
+
+sed 's/word-to-find//g' input.file > output.file
+
+Gnu/sed syntax:
+sed -i 's/word-to-find//g' input.file
+
+3.Write a sed command to print the lines that do not contain the word "run".
+
+sed -n '/run/!p' < filename 
+
+4.Write a command to replace the second occurrence of the word "bat" with "ball" in a file?
+
+sed 's/bat/ball/2' < filename

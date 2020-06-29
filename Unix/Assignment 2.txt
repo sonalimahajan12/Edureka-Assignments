@@ -1,0 +1,27 @@
+$ echo -e "Sonali \nis \nmy \nName \nof \nLinux \nCourse" 
+
+Sonali
+is 
+my
+Name
+of 
+Linux 
+Course
+
+$ echo -e "Tecmint \tis \ta \tcommunity \tof \tLinux \tNerds" 
+
+Tecmint 	is 	a 	community 	of 	Linux 	Nerds 
+
+$ echo -e "\vTecmint \vis \va \vcommunity \vof \vLinux \vNerds" 
+
+Tecmint 
+        is 
+           a 
+             community 
+                       of 
+                          Linux 
+                                Nerds 
+
+$ echo -e "Tecmint is a \acommunity \aof \aLinux Nerds" 
+
+Tecmint is a community of Linux Nerds
